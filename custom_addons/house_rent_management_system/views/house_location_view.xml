@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="house_location_tree" model="ir.ui.view">
+        <field name="name">house.location.tree</field>
+        <field name="model">house.location</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="address"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="house_location_form" model="ir.ui.view">
+        <field name="name">house.location.form</field>
+        <field name="model">house.location</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group>
+                        <field name="address"/>
+
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_house_location" model="ir.actions.act_window">
+        <field name="name">House Location</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">house.location</field>
+        <field name="view_mode">tree,form,activity</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first House Location !
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="house_information_menu"
+              name="House information"
+              parent="house_rent_management_menu_root"
+              sequence="0"/>
+
+    <menuitem id="house_location_menu"
+              name="House Location"
+              action="action_house_location"
+              parent="house_information_menu"
+              sequence="0"/>
+</odoo>

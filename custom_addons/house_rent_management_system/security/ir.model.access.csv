@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.renter.information,access_renter_information,house_rent_management_system.model_renter_information,base.group_user,1,1,1,1
+access.house.location,access_house_location,house_rent_management_system.model_house_location,base.group_user,1,1,1,1
+access.property.flats,access_property_flats,house_rent_management_system.model_property_flats,base.group_user,1,1,1,1
+access.property.property,access_property_property,house_rent_management_system.model_property_property,base.group_user,1,1,1,1
+access.property.renter,access_property_renter,house_rent_management_system.model_property_renter,base.group_user,1,1,1,1
