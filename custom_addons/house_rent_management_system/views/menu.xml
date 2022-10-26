@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="house_rent_management_menu_root"
+              name="House Rent Management"
+              sequence="0"/>
+
+    <menuitem id="rent_information_menu_master"
+              name="Renter Information"
+              parent="house_rent_management_menu_root"
+              sequence="0"/>
+
+</odoo>
