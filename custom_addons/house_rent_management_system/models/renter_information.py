@@ -9,7 +9,7 @@ class RenterInformation(models.Model):
     name = fields.Char(string='Renter Name')
     age = fields.Char(string='Age')
     NID = fields.Char(string='NID')
-    BOD = fields.Char(string='BOD')
+    BOD = fields.Date(string='BOD')
     family_member = fields.Char(string='Family Member')
     address = fields.Text(string='Address')
     work_info = fields.Text(string='Work info.')

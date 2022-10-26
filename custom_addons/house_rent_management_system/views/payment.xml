@@ -8,6 +8,8 @@
             <tree>
                 <field name="renter_id"/>
                 <field name="month"/>
+                <field name="year"/>
+                <field name="amount"/>
                 <field name="state"/>
             </tree>
         </field>
@@ -31,6 +33,8 @@
                     <group>
                         <field name="renter_id"/>
                         <field name="month"/>
+                        <field name="year"/>
+                        <field name="amount"/>
 
                     </group>
 
