@@ -15,3 +15,10 @@ class Payment(models.Model):
         ('cancelled', "Cancelled")
     ], default='pending',
         string="Status", required=True)
+
+    def action_paid(self):
+        self.state = 'paid'
+    def action_pending(self):
+        self.state = 'pending'
+    def action_cancelled(self):
+        self.state = 'cancelled'

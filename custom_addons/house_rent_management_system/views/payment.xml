@@ -20,10 +20,10 @@
             <form>
 
                 <header>
-                    <!--<button id="acshigh" name="archive_equipment_request" type="object" attrs="{'invisible': [('archive', '=', True)]}"/>-->
-                    <!--<button string="Reopen Request" name="reset_equipment_request" type="object" attrs="{'invisible': [('archive', '=', False)]}"/>-->
-                    <!--<field name="stage_id" widget="statusbar" options="{'clickable': '1'}" attrs="{'invisible': [('archive', '=', True)]}"/>-->
-                    <field name="state" widget="statusbar" options="{'clickable': '1'}" statusbar_visible="pending,paid"/>
+                    <button id="button_pending" name="action_pending" string="Pending" class="btn-primary" type="object" states="cancelled,paid"/>
+                    <button id="button_paid" name="action_paid" string="Paid" class="btn-primary" type="object" states="pending,cancelled"/>
+                    <button id="button_cancelled" name="action_cancelled" string="Cancelled" class="btn-primary" type="object" states="pending,paid"/>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,paid"/>
                 </header>
 
                 <sheet>
