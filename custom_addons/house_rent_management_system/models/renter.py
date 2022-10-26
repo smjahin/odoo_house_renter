@@ -15,7 +15,7 @@ class RenterDetails(models.Model):
     @api.onchange('flat_id')
     def if_already_rented(self):
         if self.flat_id:
-            print('hello',self.flat_id)
             flat = self.env['property.renter'].search([('flat_id', '=', self.flat_id.id)])
+            flat_name = self.flat_id.flat_name
             if flat:
-                raise ValidationError('Flat Already Rented')
+                raise ValidationError(f'This {flat_name} Flat Already Rented')
