@@ -16,6 +16,8 @@ class RenterDetails(models.Model):
     def if_already_rented(self):
         if self.flat_id:
             flat = self.env['property.renter'].search([('flat_id', '=', self.flat_id.id)])
+            print("selfffff", self.env['property.renter'])
+            # selfffff property.renter()
             flat_name = self.flat_id.flat_name
             if flat:
                 raise ValidationError(f'This {flat_name} Flat Already Rented')

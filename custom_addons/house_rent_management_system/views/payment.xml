@@ -7,8 +7,8 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="renter_id"/>
-                <field name="flat_id"/>
                 <field name="property_id"/>
+                <field name="flat_id"/>
                 <field name="month"/>
                 <field name="year"/>
                 <field name="amount"/>
@@ -34,8 +34,8 @@
 
                     <group>
                         <field name="renter_id"/>
-                        <field name="flat_id"/>
                         <field name="property_id"/>
+                        <field name="flat_id"/>
                         <field name="month"/>
                         <field name="year"/>
                         <field name="amount"/>
