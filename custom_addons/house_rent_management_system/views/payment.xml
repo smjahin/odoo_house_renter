@@ -8,6 +8,7 @@
             <tree>
                 <field name="renter_id"/>
                 <field name="month"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>
@@ -17,6 +18,14 @@
         <field name="model">payment.payment</field>
         <field name="arch" type="xml">
             <form>
+
+                <header>
+                    <!--<button id="acshigh" name="archive_equipment_request" type="object" attrs="{'invisible': [('archive', '=', True)]}"/>-->
+                    <!--<button string="Reopen Request" name="reset_equipment_request" type="object" attrs="{'invisible': [('archive', '=', False)]}"/>-->
+                    <!--<field name="stage_id" widget="statusbar" options="{'clickable': '1'}" attrs="{'invisible': [('archive', '=', True)]}"/>-->
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}" statusbar_visible="pending,paid"/>
+                </header>
+
                 <sheet>
 
                     <group>
