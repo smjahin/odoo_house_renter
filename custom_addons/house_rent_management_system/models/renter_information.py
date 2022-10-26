@@ -1,6 +1,5 @@
-
-
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class RenterInformation(models.Model):
@@ -29,6 +28,14 @@ class RenterInformation(models.Model):
         return result
 
     @api.onchange('name')
-    def if_already_rented(self):
-        if self.name:
+    def auto_filled_up_email(self):
+        if self.email:
             self.email = self.name
+
+    @api.onchange('email')
+    def verify_email(self):
+        if self.email:
+            email_address = self.env['renter.information'].search([('email', '=', self.email)])
+            email_name = self.email
+            if email_address:
+                raise ValidationError(f'This {email_name}  Email address is already exist')
