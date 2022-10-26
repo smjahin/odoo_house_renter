@@ -12,7 +12,8 @@
         'views/house_location_view.xml',
         'views/renter_information_view.xml',
         'views/property_flats_view.xml',
-        'views/property_view.xml'
+        'views/property_view.xml',
+        'views/payment.xml'
 
     ],
     'demo': [],
