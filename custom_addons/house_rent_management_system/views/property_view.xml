@@ -30,6 +30,23 @@
         </field>
     </record>
 
+    <record id="property_property_search" model="ir.ui.view">
+        <field name="name">property.property.search</field>
+        <field name="model">property.property</field>
+        <field name="arch" type="xml">
+            <search string="Property">
+                <field name="location_id"/>
+                <field name="property_name"/>
+                <separator/>
+                <!--<filter string="Completed" name="filter_completed" domain="[('completed', '=', True)]"/>-->
+                <group expand="1" string="Group By">
+                    <filter string="Location" name="location_id" context="{'group_by': 'location_id'}"/>
+                    <filter string="Name" name="property_name" context="{'group_by': 'property_name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
     <record id="action_property_property" model="ir.actions.act_window">
         <field name="name">Property</field>
         <field name="type">ir.actions.act_window</field>
@@ -38,7 +55,7 @@
         <!--<field name="context">{}</field>-->
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create your first Property !
+                Create your first patients !
             </p>
         </field>
     </record>

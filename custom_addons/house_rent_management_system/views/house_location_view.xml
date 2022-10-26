@@ -28,6 +28,21 @@
         </field>
     </record>
 
+    <record id="house_location_search" model="ir.ui.view">
+        <field name="name">house.location.search</field>
+        <field name="model">house.location</field>
+        <field name="arch" type="xml">
+            <search string="House Location">
+                <field name="address"/>
+                <separator/>
+                <!--<filter string="Completed" name="filter_completed" domain="[('completed', '=', True)]"/>-->
+                <group expand="1" string="Group By">
+                    <filter string="Address" name="address" context="{'group_by': 'address'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
     <record id="action_house_location" model="ir.actions.act_window">
         <field name="name">House Location</field>
         <field name="type">ir.actions.act_window</field>
@@ -36,7 +51,7 @@
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create your first House Location !
+                Create your first patients !
             </p>
         </field>
     </record>

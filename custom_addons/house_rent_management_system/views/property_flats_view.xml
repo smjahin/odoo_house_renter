@@ -33,6 +33,25 @@
         </field>
     </record>
 
+    <record id="property_flats_search" model="ir.ui.view">
+        <field name="name">property.flats.search</field>
+        <field name="model">property.flats</field>
+        <field name="arch" type="xml">
+            <search string="Flats">
+                <field name="property_id"/>
+                <field name="flat_name"/>
+                <field name="price"/>
+                <separator/>
+                <!--<filter string="Completed" name="filter_completed" domain="[('completed', '=', True)]"/>-->
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="property_id" context="{'group_by': 'property_id'}"/>
+                    <filter string="Flat Name" name="flat_name" context="{'group_by': 'flat_name'}"/>
+                    <filter string="Price" name="price" context="{'group_by': 'price'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
     <record id="action_property_flats" model="ir.actions.act_window">
         <field name="name">Property Flats</field>
         <field name="type">ir.actions.act_window</field>
@@ -41,7 +60,7 @@
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create your first Flat !
+                Create your first patients !
             </p>
         </field>
     </record>
