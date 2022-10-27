@@ -10,6 +10,7 @@ class Property(models.Model):
     location_id = fields.Many2one('house.location', string='Location Info.')
     property_name = fields.Char(string='Property Name')
     manager_id = fields.Many2one('manager.information', string='Manager Name')
+    total_flat = fields.Integer(string='Total Flat')
 
     @api.onchange('manager_id')
     def verify_property(self):
