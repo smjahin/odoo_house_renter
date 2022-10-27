@@ -15,6 +15,8 @@ class RenterInformation(models.Model):
     work_info = fields.Text(string='Work info.')
     phone = fields.Char(string='Phone')
     email = fields.Char(string='Email')
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female'),
+                              ('other', 'Other')], string='gender')
 
     @api.model
     def create(self, vals):

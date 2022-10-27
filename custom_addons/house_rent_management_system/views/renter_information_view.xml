@@ -14,6 +14,7 @@
                 <field name="family_member"/>
                 <field name="address"/>
                 <field name="work_info"/>
+                <field name="gender"/>
             </tree>
         </field>
     </record>
@@ -28,12 +29,13 @@
                     <group>
                         <field name="name"/>
                         <field name="email"/>
+                        <field name="gender"/>
                         <field name="phone"/>
                         <field name="NID"/>
                         <field name="BOD"/>
-                        <field name="age"/>
                     </group>
                     <group>
+                        <field name="age"/>
                         <field name="family_member"/>
                         <field name="address"/>
                         <field name="work_info"/>

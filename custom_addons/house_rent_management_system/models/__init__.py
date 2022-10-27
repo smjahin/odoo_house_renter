@@ -4,3 +4,4 @@ from . import property
 from . import renter
 from . import flat
 from . import payment
+from . import manager_information
