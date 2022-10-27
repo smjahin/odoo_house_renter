@@ -5,9 +5,9 @@ from odoo.exceptions import ValidationError
 class Payment(models.Model):
     _name = 'payment.payment'
     _description = 'Payment Information'
-    _rec_name = 'renter_id'
     _rec_name = 'flat_id'
     _rec_name = 'property_id'
+    _rec_name = 'renter_id'
 
     renter_id = fields.Many2one('property.renter', string='Renter Name')
     month = fields.Selection([('january', 'January'), ('february', 'February'),
@@ -18,7 +18,7 @@ class Payment(models.Model):
     flat_id = fields.Many2one('property.flats', string='Flat Name')
     property_id = fields.Many2one('property.property', string='Property Name')
     year = fields.Char(string='Year')
-    amount = fields.Float(string='Amount')
+    amount = fields.Float(string='Amount', related='flat_id.price')
     state = fields.Selection([
         ('pending', "Pending"),
         ('paid', "Paid"),
@@ -42,32 +42,22 @@ class Payment(models.Model):
     #             raise ValidationError(f'This {flat_name} Flat Already Rented')
 
 
-    # @api.onchange('renter_id')
-    # def auto_filled_up_flat(self):
-    #     self.flat_id = property.flats([(1,),(2,)])
-    #     print(self.flat_id)
-    #
-    # @api.onchange('flat_id')
-    # def auto_filled_up_flat(self):
-    #     print(self.flat_id)
-
     @api.onchange('property_id')
-    def _onchange_renter_id_wrapper(self):
+    def _onchange_property_id_wrapper(self):
         res = {'domain': {'flat_id': []}}
         if self.renter_id:
             res['domain']['flat_id'] = [('property_id', '=', self.property_id.id)]
-
-
+        print('res----',res)
         return res
 
-
-
-    # @api.onchange('country_id')
-    # def _onchange_country_id_wrapper(self):
-    #     res = {'domain': {'state_id': []}}
+    # @api.onchange('property_id')
+    # def _onchange_property_id_wrapper(self):
+    #     res = {'domain': {'renter_id': []}}
+    #     if self.renter_id:
+    #         res['domain']['renter_id'] = [('property_id', '=', self.property_id.id)]
     #
-    #     if self.country_id:
-    #         res['domain']['state_id'] = [('country_id', '=', self.country_id.id)]
-    #
+    #     print('renter res---',res)
     #
     #     return res
+
+
