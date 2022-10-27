@@ -25,15 +25,17 @@ class Property(models.Model):
 
     def _compute_appointment_count(self):
         # rented_flat_count = self.env['property.flats'].search_count([('property_id','=',self.id)])
-        rented_flat_count = self.env['property.flats'].search_count([
-                                ('property_id', '=', self.id)
-                            ])
-        self.rented_flat=rented_flat_count
+        for rec in self:
+            rented_flat_count = self.env['property.flats'].search_count([
+                                    ('property_id', '=', rec.id)
+                                ])
+            rec.rented_flat=rented_flat_count
 
     def _compute_property_amount(self):
-        manager_info = self.env['property.flats'].search([('property_id', '=', self.id)])
-        amount = 0
-        for m in manager_info:
-            amount = amount + m.price
-        self.total_amount = amount
+        for rec in self:
+            manager_info = self.env['property.flats'].search([('property_id', '=', rec.id)])
+            amount = 0
+            for m in manager_info:
+                amount = amount + m.price
+            rec.total_amount = amount
 
