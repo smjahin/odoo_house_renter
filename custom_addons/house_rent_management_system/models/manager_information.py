@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class ManagerInformation(models.Model):
@@ -13,3 +14,4 @@ class ManagerInformation(models.Model):
     phone = fields.Char(string='Phone')
     email = fields.Char(string='Email')
     age = fields.Integer(string='Age')
+

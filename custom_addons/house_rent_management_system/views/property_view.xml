@@ -8,6 +8,7 @@
             <tree>
                 <field name="location_id"/>
                 <field name="property_name"/>
+                <field name="manager_id"/>
             </tree>
         </field>
     </record>
@@ -22,7 +23,7 @@
                     <group>
                         <field name="location_id"/>
                         <field name="property_name"/>
-
+                        <field name="manager_id"/>
                     </group>
 
                 </sheet>

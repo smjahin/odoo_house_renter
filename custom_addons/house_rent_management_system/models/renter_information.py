@@ -31,8 +31,7 @@ class RenterInformation(models.Model):
 
     @api.onchange('name')
     def auto_filled_up_email(self):
-        if self.email:
-            self.email = self.name
+        self.email = f'{self.name}@gmail'
 
     @api.onchange('email')
     def verify_email(self):
