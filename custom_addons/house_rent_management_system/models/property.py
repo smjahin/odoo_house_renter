@@ -30,9 +30,10 @@ class Property(models.Model):
                             ])
         self.rented_flat=rented_flat_count
 
-    # def _compute_property_amount(self):
-    #     manager_info = self.env['property.flats'].search([('property_id', '=', self.id)])
-    #     for m in manager_info:
-    #         print(m)
-    #     self.total_amount = manager_info
+    def _compute_property_amount(self):
+        manager_info = self.env['property.flats'].search([('property_id', '=', self.id)])
+        amount = 0
+        for m in manager_info:
+            amount = amount + m.price
+        self.total_amount = amount
 
