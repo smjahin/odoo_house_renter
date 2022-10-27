@@ -15,3 +15,15 @@ class ManagerInformation(models.Model):
     email = fields.Char(string='Email')
     age = fields.Integer(string='Age')
 
+
+    @api.onchange('name')
+    def auto_filled_up_email(self):
+        self.email = f'{self.name}@gmail'
+
+    @api.onchange('email')
+    def verify_email(self):
+        if self.email:
+            email_address = self.env['manager.information'].search([('email', '=', self.email)])
+            email_name = self.email
+            if email_address:
+                raise ValidationError(f'This {email_name}  Email address is already exist')
