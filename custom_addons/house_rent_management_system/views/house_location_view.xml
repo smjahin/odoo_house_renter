@@ -57,12 +57,12 @@
     </record>
 
     <menuitem id="house_information_menu"
-              name="House information"
+              name="House"
               parent="house_rent_management_menu_root"
               sequence="0"/>
 
     <menuitem id="house_location_menu"
-              name="House Location"
+              name="Location"
               action="action_house_location"
               parent="house_information_menu"
               sequence="0"/>

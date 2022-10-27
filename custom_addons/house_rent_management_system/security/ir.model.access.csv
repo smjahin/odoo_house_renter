@@ -5,3 +5,4 @@ access.property.flats,access_property_flats,house_rent_management_system.model_p
 access.property.property,access_property_property,house_rent_management_system.model_property_property,base.group_user,1,1,1,1
 access.property.renter,access_property_renter,house_rent_management_system.model_property_renter,base.group_user,1,1,1,1
 access.payment.payment,access_payment_payment,house_rent_management_system.model_payment_payment,base.group_user,1,1,1,1
+access.manager.information,access_manager_information,house_rent_management_system.model_manager_information,base.group_user,1,1,1,1

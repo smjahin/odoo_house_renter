@@ -25,20 +25,21 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-
                     <group>
-                        <field name="name"/>
-                        <field name="email"/>
-                        <field name="gender"/>
-                        <field name="phone"/>
-                        <field name="NID"/>
-                        <field name="BOD"/>
-                    </group>
-                    <group>
-                        <field name="age"/>
-                        <field name="family_member"/>
-                        <field name="address"/>
-                        <field name="work_info"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="gender"/>
+                            <field name="phone"/>
+                            <field name="NID"/>
+                            <field name="BOD"/>
+                        </group>
+                        <group>
+                            <field name="age"/>
+                            <field name="family_member"/>
+                            <field name="address"/>
+                            <field name="work_info"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
