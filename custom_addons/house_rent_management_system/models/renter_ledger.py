@@ -31,13 +31,12 @@ class RenterLedger(models.Model):
         for rec in self:
             faid_amount_info = self.env['payment.payment'].search([('flat_id', '=', rec.flat_id.id)
                                                                   ,('month', '=', rec.month), ('year','=',rec.year)
-                                                               ,('state','=','paid')])
+                                                               ,('state','=','paid'), ('renter_id','=',rec.renter_id.id)])
             sum = 0
             for m in faid_amount_info:
                 sum = sum + m.amount
             rec.flat_paid_amount = sum
 
     def _compute_flat_due_amount(self):
-        # for rec
-        # self.flat_due_amount = self.flat_rent - self.flat_paid_amount
-        pass
+        for rec in self:
+            rec.flat_due_amount = rec.flat_rent - rec.flat_paid_amount
