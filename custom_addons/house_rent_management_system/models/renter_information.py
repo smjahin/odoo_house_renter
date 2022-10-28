@@ -20,10 +20,10 @@ class RenterInformation(models.Model):
 
     @api.model
     def create(self, vals):
-        print("successfully overrided")
+        # print("successfully overrided")
         result = super(RenterInformation, self).create(vals)
-        print("Result---",result)
-        print("vals---",vals)
+        # print("Result---",result)
+        # print("vals---",vals)
         # Result - -- renter.information(4, )
         # vals - -- {'name': 'seam', 'email': 'seam@asg.com', 'phone': '7489273497', 'NID': '12918461289', 'BOD': '72473',
         #            'age': '20', 'family_member': '7', 'address': 'qrugwgrqi', 'work_info': 'qwyr8qywr8q8ry'}

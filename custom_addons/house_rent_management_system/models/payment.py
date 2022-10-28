@@ -17,7 +17,7 @@ class Payment(models.Model):
                               ('december', 'December')], string='Month')
     flat_id = fields.Many2one('property.flats', string='Flat Name')
     property_id = fields.Many2one('property.property', string='Property Name')
-    year = fields.Char(string='Year')
+    year = fields.Integer(string='Year')
     amount = fields.Float(string='Amount', related='flat_id.price')
     state = fields.Selection([
         ('pending', "Pending"),

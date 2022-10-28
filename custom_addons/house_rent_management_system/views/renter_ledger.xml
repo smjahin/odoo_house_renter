@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="renter_ledger_tree" model="ir.ui.view">
+        <field name="name">renter.ledger.tree</field>
+        <field name="model">renter.ledger</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="renter_id"/>
+                <field name="property_id"/>
+                <field name="flat_id"/>
+                <field name="month"/>
+                <field name="year"/>
+                <field name="flat_rent"/>
+                <field name="flat_paid_amount"/>
+                <field name="flat_due_amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="renter_ledger_form" model="ir.ui.view">
+        <field name="name">renter.ledger.form</field>
+        <field name="model">renter.ledger</field>
+        <field name="arch" type="xml">
+            <form>
+
+                <sheet>
+
+                    <group>
+                        <field name="renter_id"/>
+                        <field name="property_id"/>
+                        <field name="flat_id"/>
+                        <field name="month"/>
+                        <field name="year"/>
+                        <field name="flat_rent"/>
+                        <field name="flat_paid_amount"/>
+                        <field name="flat_due_amount"/>
+
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_renter_ledger" model="ir.actions.act_window">
+        <field name="name">Renter Ledger</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">renter.ledger</field>
+        <field name="view_mode">tree,form</field>
+        <!--<field name="context">{}</field>-->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Ledger !
+            </p>
+        </field>
+    </record>
+    <menuitem id="renter_ledger_menu"
+              name="Renter Ledger"
+              action="action_renter_ledger"
+              parent="house_rent_management_menu_root"
+              sequence="1"/>
+</odoo>

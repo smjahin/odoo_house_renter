@@ -14,7 +14,8 @@
         'views/property_flats_view.xml',
         'views/property_view.xml',
         'views/payment.xml',
-        'views/manager_information_view.xml'
+        'views/manager_information_view.xml',
+        'views/renter_ledger.xml',
 
     ],
     'demo': [],
