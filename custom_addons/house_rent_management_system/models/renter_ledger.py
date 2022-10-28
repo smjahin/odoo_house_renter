@@ -18,3 +18,17 @@ class RenterLedger(models.Model):
     flat_rent = fields.Float( string='Flat Rent', related='flat_id.price')
     flat_paid_amount = fields.Float(string='Flat Paid Amount')
     flat_due_amount = fields.Float(string='Falt Due Amount')
+
+    @api.onchange('property_id')
+    def _onchange_property_id_wrapper(self):
+        res = {'domain': {'flat_id': []}}
+        if self.renter_id:
+            res['domain']['flat_id'] = [('property_id', '=', self.property_id.id)]
+        print('res----', res)
+        return res
+
+    def _compute_flat_paid_amount(self):
+        pass
+
+    def _compute_flat_due_amount(self):
+        pass
