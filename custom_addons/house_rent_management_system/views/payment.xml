@@ -6,9 +6,10 @@
         <field name="model">payment.payment</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="renter_id"/>
+
                 <field name="property_id"/>
                 <field name="flat_id"/>
+                <field name="renter_id"/>
                 <field name="month"/>
                 <field name="year"/>
                 <field name="amount"/>
@@ -33,9 +34,10 @@
                 <sheet>
 
                     <group>
-                        <field name="renter_id"/>
+
                         <field name="property_id"/>
                         <field name="flat_id"/>
+                        <field name="renter_id"/>
                         <field name="month"/>
                         <field name="year"/>
                         <field name="amount"/>

@@ -9,7 +9,7 @@ class Payment(models.Model):
     _rec_name = 'property_id'
     _rec_name = 'renter_id'
 
-    renter_id = fields.Many2one('property.renter', string='Renter Name')
+    renter_id = fields.Many2one('property.renter', string='Renter Name', compute='_compute_renter_name')
     month = fields.Selection([('january', 'January'), ('february', 'February'),
                               ('march', 'March'),('april', 'April'),('may', 'May'),
                               ('jun', 'June'),('july', 'July'),('august', 'August'),
@@ -59,5 +59,10 @@ class Payment(models.Model):
     #     print('renter res---',res)
     #
     #     return res
+
+    def _compute_renter_name(self):
+        for rec in self:
+            renter_name = self.env['property.renter'].search([('flat_id', '=', rec.flat_id.id)])
+            rec.renter_id = renter_name.id
 
 

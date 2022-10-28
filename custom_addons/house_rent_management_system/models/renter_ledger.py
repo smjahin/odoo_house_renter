@@ -6,9 +6,9 @@ class RenterLedger(models.Model):
     _description = 'Renter Ledger'
     _rec_name = 'renter_id'
 
-    renter_id = fields.Many2one('property.renter', string='Renter Name')
     flat_id = fields.Many2one('property.flats', string='Flat Name')
     property_id = fields.Many2one('property.property', string='Property Name')
+    renter_id = fields.Many2one('property.renter', string='Renter Name', compute='_compute_renter_name')
     year = fields.Integer(string='Year')
     month = fields.Selection([('january', 'January'), ('february', 'February'),
                               ('march', 'March'), ('april', 'April'), ('may', 'May'),
@@ -40,3 +40,8 @@ class RenterLedger(models.Model):
     def _compute_flat_due_amount(self):
         for rec in self:
             rec.flat_due_amount = rec.flat_rent - rec.flat_paid_amount
+
+    def _compute_renter_name(self):
+        for rec in self:
+            renter_name = self.env['property.renter'].search([('flat_id', '=', rec.flat_id.id)])
+            rec.renter_id = renter_name.id

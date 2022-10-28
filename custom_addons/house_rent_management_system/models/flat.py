@@ -9,3 +9,7 @@ class FlatDetails(models.Model):
     property_id = fields.Many2one('property.property', string='Property Name')
     flat_name = fields.Char(string='Flats Name')
     price = fields.Float(string='Rent Price')
+
+    @api.onchange('property_id')
+    def auto_filled_up_email(self):
+        self.flat_name = f'{self.property_id.property_name}- '
